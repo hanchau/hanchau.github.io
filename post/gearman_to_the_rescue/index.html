@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  <title>Gearman to the Rescue! &middot; Anuj Chauhan</title>
+
+  <meta name="description" content="Setup of the Gearman." />
+
+  
+  <meta property="og:locale" content="en"/>
+
+  
+  <meta property="og:image" content="https://hanchau.github.io/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Anuj Chauhan"/>
+  <meta property="og:title" content="Gearman to the Rescue!"/>
+  <meta property="og:description" content="Setup of the Gearman."/>
+  <meta property="og:url" content="https://hanchau.github.io/post/gearman_to_the_rescue/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-03-01T00:00:00Z"/>
+  <meta property="article:modified_time" content="2020-03-01T00:00:00Z"/>
+  <meta property="article:author" content="">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Anuj Chauhan",
+    "url" : "https://hanchau.github.io/",
+    "image": "https://hanchau.github.io/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Gearman to the Rescue!",
+    "headline": "Gearman to the Rescue!",
+    "datePublished": "2020-03-01T00:00:00Z",
+    "dateModified": "2020-03-01T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "",
+      "url": "https://hanchau.github.io/"
+    },
+    "image": "https://hanchau.github.io/images/profile.png",
+    "url": "https://hanchau.github.io/post/gearman_to_the_rescue/",
+    "description": "Setup of the Gearman."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://hanchau.github.io/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://hanchau.github.io/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://hanchau.github.io/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://hanchau.github.io/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Anuj Chauhan</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://hanchau.github.io/">Home</a>
+        </li>
+        <li>
+          <a href="/posts/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/anuj-chauhan-b23329121" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/hanchau" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Gearman to the Rescue!</h1>
+
+  <div class="post-date">
+    <time datetime="2020-03-01T00:00:00Z">Mar 1, 2020</time> · 1 min read
+  </div>
+
+  <p>This article offers a setup of <a href="https://github.com/hanchau/gearman_to_the_rescue">Gearman</a> for Parallel/Distributed processing.</p>
+<h3 id="an-elegant-and-generic-application-framework-for-parallel-and-distributed-processing">An elegant and generic application framework for parallel and distributed processing.</h3>
+<h4 id="a-web-cast-to-get-a-good-idea-about-the-architecture-of-the-gearman">A web cast to get a good idea about the architecture of the Gearman.</h4>
+<hr>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/YoAQ7Zsl9bE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<h4 id="initial-setup">Initial Setup</h4>
+<ol>
+<li>Setup gearadmin and gearman with.</li>
+</ol>
+<pre><code>  $ brew install gearmand
+  or
+  $ apt install gearman-job-server
+</code></pre><ol start="2">
+<li>
+<p>Setup <a href="https://www.richardsumilang.com/server/gearman/install-gearman-on-os-x/">gearman job server</a> for mac.</p>
+</li>
+<li>
+<p>You can get the <a href="https://github.com/hanchau/gearman_to_the_rescue/tree/feature/arch/dependencies/gearman">gearman python package</a>.</p>
+</li>
+<li>
+<p>Copy the gearman package as shown and install the requirements.</p>
+</li>
+</ol>
+<pre><code>  $ source /path/to/env
+  $ python -m site
+  $ cp -r &lt;path/to/gearman/package/dir&gt; &lt;/path/to/env&gt;/lib/python3.8/site-packages/
+  $ pip install -r requirements.txt
+</code></pre><ol start="5">
+<li>To check the proper installation do</li>
+</ol>
+<pre><code>  $ gearadmin --server-version
+  $ gearadmin --status
+</code></pre><ol start="6">
+<li>To check the proper installation of the python gearman package do</li>
+</ol>
+<pre><code>  $ python -c &quot;import gearman&quot;
+</code></pre><p><code>if no error is thrown then you are good to go.</code></p>
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; hanchau 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

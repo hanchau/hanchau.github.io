@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Anuj Chauhan</title>
+    <link>https://hanchau.github.io/tags/redis/</link>
+    <description>Recent content in redis on Anuj Chauhan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hanchau.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gearman to the Rescue!</title>
+      <link>https://hanchau.github.io/post/gearman_to_the_rescue/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanchau.github.io/post/gearman_to_the_rescue/</guid>
+      <description>&lt;p&gt;This article offers a setup of &lt;a href=&#34;https://github.com/hanchau/gearman_to_the_rescue&#34;&gt;Gearman&lt;/a&gt; for Parallel/Distributed processing.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
