@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  <title>Distributed systems! &middot; Anuj Chauhan</title>
+
+  <meta name="description" content="Why do we need distributed systems?" />
+
+  
+  <meta property="og:locale" content="en"/>
+
+  
+  <meta property="og:image" content="https://hanchau.github.io/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Anuj Chauhan"/>
+  <meta property="og:title" content="Distributed systems!"/>
+  <meta property="og:description" content="Why do we need distributed systems?"/>
+  <meta property="og:url" content="https://hanchau.github.io/post/understanding_distributed_systems/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-03-15T00:00:00Z"/>
+  <meta property="article:modified_time" content="2020-03-15T00:00:00Z"/>
+  <meta property="article:author" content="">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Anuj Chauhan",
+    "url" : "https://hanchau.github.io/",
+    "image": "https://hanchau.github.io/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Distributed systems!",
+    "headline": "Distributed systems!",
+    "datePublished": "2020-03-15T00:00:00Z",
+    "dateModified": "2020-03-15T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "",
+      "url": "https://hanchau.github.io/"
+    },
+    "image": "https://hanchau.github.io/images/profile.png",
+    "url": "https://hanchau.github.io/post/understanding_distributed_systems/",
+    "description": "Why do we need distributed systems?"
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://hanchau.github.io/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://hanchau.github.io/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://hanchau.github.io/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://hanchau.github.io/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Anuj Chauhan</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://hanchau.github.io/">Home</a>
+        </li>
+        <li>
+          <a href="/posts/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/anuj-chauhan-b23329121" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/hanchau" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Distributed systems!</h1>
+
+  <div class="post-date">
+    <time datetime="2020-03-15T00:00:00Z">Mar 15, 2020</time> · 4 min read
+  </div>
+
+  <p>This article offers a basic understanding of the distributed systems.</p>
+<h4 id="what-the-hell-is-a-distributed-systems">What the hell is a Distributed Systems?.</h4>
+<p>In the last post I gave a brief about the concept of parallel processing through some examples. Now we know how to make our systems more parallel in nature, I think it&rsquo;s time learn the concept of distributed processing, how it&rsquo;s different from parallel processing and how to integrate it in our existing projects. There are lots of definitions of Distributed System but I&rsquo;ll give you the one I like the most which is obviously mine (HAHA).</p>
+<blockquote>
+<p>A system having a collection of multiple computer systems located at different geographical locations.</p>
+</blockquote>
+<p>Some examples of distributed systems are:</p>
+<ol>
+<li><a href="https://arsalankhan.com/2015/07/02/is-internet-a-distributed-system/">The Internet</a></li>
+<li><a href="http://highscalability.com/google-architecture">Google</a></li>
+<li><a href="https://prezi.com/phbdww0euz94/facebook-as-a-distributed-system/">Facebook</a></li>
+</ol>
+<p>There are some useful primitive features to exploit out from a distributed system:</p>
+<pre><code>Distributed Storage.
+Distributed Computing.
+Distributed Memory.
+</code></pre><p>Now from these primitive features we can construct many high level features having varied quantities of primitives features.</p>
+<ol>
+<li>No Single point of Failure.</li>
+<li>High Scalability.</li>
+<li>Low Latency.</li>
+<li>Reliability.</li>
+</ol>
+<h4 id="single-point-of-failure">Single Point of Failure.</h4>
+<p>Now we know how to process parallelly, let&rsquo;s say you wrote an application which uses all these cool parallel processing features and deployed it on the server. Days passes and one day a thunderstorm comes and electricity system of the city goes down. Nobody can use ur application. So&hellip; what to do?</p>
+<p>I think you got the point, there should not be a single thing in our system on which the whole system depends i.e. if that thing goes down system goes down.</p>
+<p>One solution is, why don&rsquo;t we replicate our system in another server who has a different electricity supplier. Well it is possible.</p>
+<p>We can go with this solution and to achieve no single point of failure with gearman we just have to create a new replica of the original server.</p>
+<p>The Gearman solution:</p>
+<pre><code>Given initial server A.
+Get an new server B in a seperate geographical location.
+Clone your application.
+Start a new gearman job server.
+  $ gearman -d &lt;port&gt;
+Add all your workers/clients to both the gearman job servers A and B.
+Daemonize your workers on B.
+</code></pre><p>Now, if any one of them goes down there will be another one to process the tasks.
+Hurray!! Now we&rsquo;re safe from any kind of electricity isssue.</p>
+<pre><code>NOTE: By getting servers of different electricity supplier we're just trying to minimize the probability of getting a downtime, because as we keep on increasing the number of backup servers from different electricity suppliers the probability of having an electricity shutdown for all the supplier at the same time would be very less.
+</code></pre><h4 id="high-scalability">High Scalability</h4>
+<p>I think of scaling as an increase in the number of tasks to perform by the system. These tasks can be CPU Intensive, I/O Intensive or can have both CPU and IO bursts. So, let&rsquo;s say you have a live video streaming application which was initially doing 10^1 taks/min with a machine limit of 10^2 tasks/min, but due to sudden increase in the user base because a live stream suddenly got viral, your system now receives 10^3 tasks/min. So&hellip; What will you do? Well you might say that this is not practical, but trust me if it happens, given you just started up as a live video streaming site.</p>
+<p>The Gearman solution:</p>
+<pre><code>Given initial server A.
+Get an extra server B.
+Clone your application.
+Start a new gearman job server.
+  $ gearman -d &lt;port&gt;
+Add all your workers/clients to both the gearman job servers A and B.
+Daemonize your workers on B.
+Repeat this for 8 new machines.
+</code></pre><p>Maximum system limit becomes <strong>10 * 10^2 = 10^3</strong> tasks/min.</p>
+<p>Hurray!!, Now we can sleep like a baby. Both of the other features are similar but with their own little flavor like, if you want your application response to be geography agnostic i.e. A person in India gets response in 100 ms and A person in US also gets response in the same time, Then you have to deploy it on multiple continents with all of its dependencies like DBs, Metadatas and Caches.</p>
+<p>Thanks, Cheers &amp; Happy Glogging.</p>
+<blockquote>
+<p>A Note on COVID-19 pandemic: Keep Calm, Eat Well &amp; Stay @ Home.</p>
+</blockquote>
+<h4 id="a-cool-video-to-briefly-get-the-downsides-of-distributed-systems">A cool video to briefly get the downsides of distributed systems.</h4>
+<hr>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Y6Ev8GIlbxc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; hanchau 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

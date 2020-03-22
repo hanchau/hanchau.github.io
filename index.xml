@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Distributed systems!</title>
+      <link>https://hanchau.github.io/post/understanding_distributed_systems/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanchau.github.io/post/understanding_distributed_systems/</guid>
+      <description>&lt;p&gt;This article offers a basic understanding of the distributed systems.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Parallel processing!</title>
       <link>https://hanchau.github.io/post/understanding_parallel_processing/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>

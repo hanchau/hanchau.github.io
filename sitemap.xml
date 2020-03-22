@@ -4,17 +4,47 @@
   
   <url>
     <loc>https://hanchau.github.io/categories/</loc>
-    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hanchau.github.io/categories/concepts/</loc>
-    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hanchau.github.io/tags/distributed-systems/</loc>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hanchau.github.io/post/understanding_distributed_systems/</loc>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hanchau.github.io/tags/gearman/</loc>
-    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hanchau.github.io/tags/gearman-job-server/</loc>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hanchau.github.io/post/</loc>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hanchau.github.io/categories/posts/</loc>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hanchau.github.io/tags/</loc>
+    <lastmod>2020-03-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -29,21 +59,6 @@
   
   <url>
     <loc>https://hanchau.github.io/tags/parallel-systems/</loc>
-    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hanchau.github.io/post/</loc>
-    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hanchau.github.io/categories/posts/</loc>
-    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hanchau.github.io/tags/</loc>
     <lastmod>2020-03-08T00:00:00+00:00</lastmod>
   </url>
   
