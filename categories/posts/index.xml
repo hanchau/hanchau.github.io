@@ -6,10 +6,19 @@
     <description>Recent content in posts on Anuj Chauhan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hanchau.github.io/categories/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CAP theoram!</title>
+      <link>https://hanchau.github.io/post/understanding_cap_theoram/</link>
+      <pubDate>Sun, 22 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanchau.github.io/post/understanding_cap_theoram/</guid>
+      <description>&lt;p&gt;This article offers a basic understanding of the CAP theoram.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Distributed systems!</title>
