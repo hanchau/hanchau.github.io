@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.65.3" />
 
-  <title>Posts &middot; Anuj Chauhan</title>
+  <title>CAP theorem! &middot; Anuj Chauhan</title>
 
-  <meta name="description" content="" />
+  <meta name="description" content="Pain of the distributed state." />
 
   
   <meta property="og:locale" content="en"/>
@@ -17,9 +17,9 @@
 
   
   <meta property="og:site_name" content="Anuj Chauhan"/>
-  <meta property="og:title" content="Posts"/>
-  <meta property="og:description" content=""/>
-  <meta property="og:url" content="https://hanchau.github.io/post/"/>
+  <meta property="og:title" content="CAP theorem!"/>
+  <meta property="og:description" content="Pain of the distributed state."/>
+  <meta property="og:url" content="https://hanchau.github.io/post/understanding_cap_theorem/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2020-03-22T00:00:00Z"/>
   <meta property="article:modified_time" content="2020-03-22T00:00:00Z"/>
@@ -44,8 +44,8 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "name": "Posts",
-    "headline": "Posts",
+    "name": "CAP theorem!",
+    "headline": "CAP theorem!",
     "datePublished": "2020-03-22T00:00:00Z",
     "dateModified": "2020-03-22T00:00:00Z",
     "author": {
@@ -54,8 +54,8 @@
       "url": "https://hanchau.github.io/"
     },
     "image": "https://hanchau.github.io/images/profile.png",
-    "url": "https://hanchau.github.io/post/",
-    "description": ""
+    "url": "https://hanchau.github.io/post/understanding_cap_theorem/",
+    "description": "Pain of the distributed state."
   }
   </script>
   
@@ -94,7 +94,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://hanchau.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="Anuj Chauhan" />
   </head>
 <body>
   <aside class="sidebar">
@@ -142,30 +141,60 @@
 
 
   <main class="content container">
-  <ul class="posts">
-  <h1>Posts</h1>
-  <li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_cap_theorem/">CAP theorem!</a>
-        <time class="pull-right post-list" datetime="2020-03-22T00:00:00Z">Mar 22, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_distributed_systems/">Distributed systems!</a>
-        <time class="pull-right post-list" datetime="2020-03-15T00:00:00Z">Mar 15, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_parallel_processing/">Parallel processing!</a>
-        <time class="pull-right post-list" datetime="2020-03-08T00:00:00Z">Mar 8, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/gearman_to_the_rescue/">Gearman to the Rescue!</a>
-        <time class="pull-right post-list" datetime="2020-03-01T00:00:00Z">Mar 1, 2020</time>
-    </span>
-  </li>
-</ul>
+  <div class="post">
+  <h1>CAP theorem!</h1>
+
+  <div class="post-date">
+    <time datetime="2020-03-22T00:00:00Z">Mar 22, 2020</time> · 2 min read
+  </div>
+
+  <p>This article offers a basic understanding of the CAP theorem.</p>
+<h4 id="what-is-cap-theorem">What is CAP theorem?</h4>
+<p>In the last post I discussed why we need distributed systems and how to setup gearman on a cluster. In this post I&rsquo;ll try to convince you that CAP theorem is indeed a <em>&ldquo;theorem&rdquo;</em>. Anyways, We like distributed systems!! (because they provide us the <a href="https://medium.com/system-design-blog/key-characteristics-of-distributed-systems-781c4d92cce3">features</a> that we really want) but&hellip;, Are they trivial to implement?.</p>
+<p>My colleague once said</p>
+<blockquote>
+<p>More code =&gt; More Complexity =&gt; More Monster Bugs =&gt; More Pain</p>
+</blockquote>
+<p>Let&rsquo;s start with that, Initially we used to have a beautiful piece of machine having 8 cores, 16 gigs of memory, few hundread gigs of storage. So if you wanted to get a <em>state</em> (An abstraction over the data stored in the memory or in disk), you can do</p>
+<pre><code>A.getState()
+</code></pre><p>and if you want to set the state you can similarly do</p>
+<pre><code>A.setState(10)
+</code></pre><p>So these are the fundamental operations that you can do to a <em>state</em>.</p>
+<p>You have a stream of operations, you can always maintain a queue and do the following-</p>
+<pre><code>1. while not_empty(Q):
+2. op = dequeue(Q)
+3. if validate(op):
+4.     response = exec(op)
+5.     send_back(response)
+6. else:
+7.     response = op_not_found_error()
+8.     send_back(response)
+</code></pre><p>So we can clearly see that the machine is Consistent, it eithers gives you the <em>recent write</em> (because all the operations are sequential) or the error, We have a single source of truth here, i.e our beautiful machine&rsquo;s state. The Availability of the machine depends on the network and the machine itself. Now, we want to imporve the Availability of the machine. If we add one more machine to the system and want to implement the same <em>queue</em> Q that we did for a single machine we can do the following.</p>
+<pre><code>
+1. def exec_on_machine(op, machine_name):
+3.    if validate(op):
+4.      response = exec_mac(op, machine_id)
+5.      send_back(response)
+6.    else:
+7.      response = op_not_found_error()
+8.      send_back(response)
+9.
+10. while not_empty(Q):
+11. op = dequeue(Q)
+12. if check_machine_A_online():
+13.     exec_on_machine(op, A)
+14.     sync_states(A,B)
+15. else:
+16.     exec_on_machine(op, B)
+17.     sync_states(B,A)
+</code></pre><p>Hurray!! We implemented a more Availabile system now&hellip; NO we haven&rsquo;t. Consider the following scenario-</p>
+<pre><code>Given queue of operation requests- Q = object.setState(10) | object.setState(15) | object.getState()
+
+</code></pre><p>coming soon..</p>
+<p>Thanks, Cheers &amp; Happy Glogging.</p>
+</div>
+
+
   </main>
 
   <footer>
