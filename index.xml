@@ -14,10 +14,19 @@
     <item>
       <title>CAP theorem!</title>
       <link>https://hanchau.github.io/post/understanding_cap_theorem/</link>
-      <pubDate>Sun, 22 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hanchau.github.io/post/understanding_cap_theorem/</guid>
       <description>&lt;p&gt;This article offers a basic understanding of the CAP theorem.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Consistent Hashing!</title>
+      <link>https://hanchau.github.io/post/consistent_hashing/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanchau.github.io/post/consistent_hashing/</guid>
+      <description>&lt;p&gt;This article offers a basic understanding of or Consistent Hashing.&lt;/p&gt;</description>
     </item>
     
     <item>
