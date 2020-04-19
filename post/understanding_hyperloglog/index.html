@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.65.3" />
 
-  <title>Posts &middot; Anuj Chauhan</title>
+  <title>HyperLogLog! &middot; Anuj Chauhan</title>
 
-  <meta name="description" content="" />
+  <meta name="description" content="Elegance of LogLog/HyperLogLog, A Cardinality Estimation Algorithm" />
 
   
   <meta property="og:locale" content="en"/>
@@ -17,9 +17,9 @@
 
   
   <meta property="og:site_name" content="Anuj Chauhan"/>
-  <meta property="og:title" content="Posts"/>
-  <meta property="og:description" content=""/>
-  <meta property="og:url" content="https://hanchau.github.io/post/"/>
+  <meta property="og:title" content="HyperLogLog!"/>
+  <meta property="og:description" content="Elegance of LogLog/HyperLogLog, A Cardinality Estimation Algorithm"/>
+  <meta property="og:url" content="https://hanchau.github.io/post/understanding_hyperloglog/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2020-04-19T00:00:00Z"/>
   <meta property="article:modified_time" content="2020-04-19T00:00:00Z"/>
@@ -44,8 +44,8 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "name": "Posts",
-    "headline": "Posts",
+    "name": "HyperLogLog!",
+    "headline": "HyperLogLog!",
     "datePublished": "2020-04-19T00:00:00Z",
     "dateModified": "2020-04-19T00:00:00Z",
     "author": {
@@ -54,8 +54,8 @@
       "url": "https://hanchau.github.io/"
     },
     "image": "https://hanchau.github.io/images/profile.png",
-    "url": "https://hanchau.github.io/post/",
-    "description": ""
+    "url": "https://hanchau.github.io/post/understanding_hyperloglog/",
+    "description": "Elegance of LogLog\/HyperLogLog, A Cardinality Estimation Algorithm"
   }
   </script>
   
@@ -94,7 +94,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://hanchau.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="Anuj Chauhan" />
   </head>
 <body>
   <aside class="sidebar">
@@ -142,35 +141,71 @@
 
 
   <main class="content container">
-  <ul class="posts">
-  <h1>Posts</h1>
-  <li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_hyperloglog/">HyperLogLog!</a>
-        <time class="pull-right post-list" datetime="2020-04-19T00:00:00Z">Apr 19, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_cap_theorem/">CAP theorem!</a>
-        <time class="pull-right post-list" datetime="2020-03-29T00:00:00Z">Mar 29, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_distributed_systems/">Distributed systems!</a>
-        <time class="pull-right post-list" datetime="2020-03-15T00:00:00Z">Mar 15, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/understanding_parallel_processing/">Parallel processing!</a>
-        <time class="pull-right post-list" datetime="2020-03-08T00:00:00Z">Mar 8, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="https://hanchau.github.io/post/gearman_to_the_rescue/">Gearman to the Rescue!</a>
-        <time class="pull-right post-list" datetime="2020-03-01T00:00:00Z">Mar 1, 2020</time>
-    </span>
-  </li>
+  <div class="post">
+  <h1>HyperLogLog!</h1>
+
+  <div class="post-date">
+    <time datetime="2020-04-19T00:00:00Z">Apr 19, 2020</time> · 2 min read
+  </div>
+
+  <p>This article offers a basic understanding of a Cardinality Estimation Algorithm.</p>
+<h4 id="cardinality">Cardinality</h4>
+<p>Quoting <a href="https://en.wikipedia.org/wiki/Cardinality">wikipedia</a>, the Cardinality is nothing but &ldquo;the number of elements in a given set&rdquo;.</p>
+<h4 id="cardinality-estimation-algorithm">Cardinality Estimation Algorithm</h4>
+<p>In last post we discussed CAP theorem and saw why it becomes hard to make systems Availabile and Consistent when there are potential partitions in the systems. I&rsquo;was thinking about my next post back then and finialized Consistent Hashing, But then I came across an idea to first write about HyperLogLog beacause of its Elegance and Power.</p>
+<p>Let&rsquo;s jump into it. I&rsquo;m just gonna throw a problem at you.</p>
+<pre><code>We have a list of elements and we want to count the number of distinct elements in that list. How can we solve it?
+</code></pre><blockquote>
+<p>NOTE: Before proceeding please give it some thoughts. Few hints: Can we do it in one parse. Think of bloom filters. Think of approximating it. Think of upper bounding it, cuz every finite set must have finite distinct elements, right?</p>
+</blockquote>
+<p>This all have started with counting, The list example is just to simplify it. The real use case would be to estimate big number like-</p>
+<pre><code>I have a webpage and I want to count the distinct IPs that have landed on the page.
+</code></pre><p>Let&rsquo;s sart solving it.</p>
+<h5 id="famework">Famework</h5>
+<p>We&rsquo;ll take these points in consideration when we&rsquo;ll solve the problem with multiple approaches -</p>
+<ul>
+<li>Space Complexity</li>
+<li>Time Complexity</li>
+<li>Estimation error</li>
 </ul>
+<p>Some fundamental operations are -</p>
+<ul>
+<li>Load(x) : Store x in the memory.</li>
+<li>Lookup(x,map): lookup x in a map.</li>
+</ul>
+<h5 id="approach-1-maintains-a-hash-map">Approach 1: Maintains a Hash Map</h5>
+<pre><code>1. def distinct(L):
+2.     _hMap = {}                         # A Hash Map
+3.     for i in L:
+4.         if Lookup(i,_hMap):
+5              _hMap[i] += 1
+6.         else:
+7.             _hMap[i] = 1
+8.     return len(_hMap)
+9.
+10. L = Load(element)                     # Space Complexity = O(n)
+11. crdnlty = distinct(L)                 # Time Complexity = O(n)
+</code></pre><p>Approach 1 simply maintains a hasmap in the memory. So whenever a new element comes, it looks up the element in the map and if it exists then it updates the count of that element and if the element doesnt exist then it updates the hasmap with the element.</p>
+<table>
+<thead>
+<tr>
+<th>Space Complexity</th>
+<th>Time Complexity</th>
+<th>Estimation Error %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Thanks, Cheers &amp; Happy Glogging.</p>
+</div>
+
+
   </main>
 
   <footer>
