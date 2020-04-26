@@ -324,7 +324,7 @@ e.g. rho(001101) = 3, rho(010101) = 2</li>
 <pre><code>Let's look at it this way :
 Part A:
 Consider 2 binary strings - A = '1 _ _ _ _ _' and B = '0 _ _ _ _ _'.
-We can see that the first bit divides the set of all possible strings of length 6 into two halves. Similarly the first 2 bits divide the set of strings into 4 equal subsets.
+We can see that the first bit divides the set of all possible strings of length 6 into two halves. Similarly the first 2 bits divide the set of strings into 4 quarters.
 That's why we use an exponent 2.
 
 Part B:
@@ -399,7 +399,7 @@ In our algorithm we've used 6-bit hash function, and bucket size of 4, but the u
 </tr>
 </tbody>
 </table>
-<p>Now the Estimate is ~ <code>2^(11/4) i.e. 2^2.8 ~ 7</code> which is pretty a good estimate as we have 6 distinct elements in our stream.</p>
+<p>Now the Estimate is ~ <code>2^(11/4) i.e. 2^2.8 ~ 7</code> which is a pretty good estimate as we have 6 distinct elements in our stream.</p>
 <table>
 <thead>
 <tr>
