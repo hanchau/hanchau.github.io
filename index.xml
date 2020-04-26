@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>HyperLogLog!</title>
+      <link>https://hanchau.github.io/post/understanding_hyperloglog/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanchau.github.io/post/understanding_hyperloglog/</guid>
+      <description>&lt;p&gt;This article offers a basic understanding of a Cardinality Estimation Algorithm.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>CAP theorem!</title>
       <link>https://hanchau.github.io/post/understanding_cap_theorem/</link>
       <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
