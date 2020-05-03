@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gearman on Glogger</title>
+    <link>http://hanchau.github.io/tags/gearman/</link>
+    <description>Recent content in Gearman on Glogger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://hanchau.github.io/tags/gearman/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Distributed systems!</title>
+      <link>http://hanchau.github.io/posts/understanding_distributed_systems/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_distributed_systems/</guid>
+      <description>What are Distributed Systems? In the last post I gave a brief about the concept of parallel processing through some examples. Now we know how to make our systems more parallel in nature, I think it&amp;rsquo;s time learn the concept of distributed processing, how it&amp;rsquo;s different from parallel processing and how to integrate it in our existing projects. There are lots of definitions of Distributed System but I&amp;rsquo;ll give you the one I like the most which is obviously mine (HAHA).</description>
+    </item>
+    
+    <item>
+      <title>Parallel processing!</title>
+      <link>http://hanchau.github.io/posts/understanding_parallel_processing/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_parallel_processing/</guid>
+      <description>Why Parallel Processing?. Gearman Job Server is the first parallel/distributed processing framework that I&amp;rsquo;ve learned/worked on which is indeed a very old framework out there. One of the things I like about Gearman is that it&amp;rsquo;s very generic and you can play around a lot. In the last post I wrote how to setup the gearman job server and in this post I&amp;rsquo;m going to brief you why we need parallel processing with some examples:</description>
+    </item>
+    
+    <item>
+      <title>Gearman to the Rescue!</title>
+      <link>http://hanchau.github.io/posts/gearman_to_the_rescue/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/gearman_to_the_rescue/</guid>
+      <description>&lt;p&gt;This article offers a setup of &lt;a href=&#34;https://github.com/hanchau/gearman_to_the_rescue&#34;&gt;Gearman&lt;/a&gt; for Parallel/Distributed processing.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

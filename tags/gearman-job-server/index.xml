@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gearman Job Server on Glogger</title>
+    <link>http://hanchau.github.io/tags/gearman-job-server/</link>
+    <description>Recent content in Gearman Job Server on Glogger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://hanchau.github.io/tags/gearman-job-server/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Distributed systems!</title>
+      <link>http://hanchau.github.io/posts/understanding_distributed_systems/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_distributed_systems/</guid>
+      <description>What are Distributed Systems? In the last post I gave a brief about the concept of parallel processing through some examples. Now we know how to make our systems more parallel in nature, I think it&amp;rsquo;s time learn the concept of distributed processing, how it&amp;rsquo;s different from parallel processing and how to integrate it in our existing projects. There are lots of definitions of Distributed System but I&amp;rsquo;ll give you the one I like the most which is obviously mine (HAHA).</description>
+    </item>
+    
+  </channel>
+</rss>

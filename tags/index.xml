@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Glogger</title>
+    <link>http://hanchau.github.io/tags/</link>
+    <description>Recent content in Tags on Glogger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://hanchau.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cardinality Estimation Algorithm</title>
+      <link>http://hanchau.github.io/tags/cardinality-estimation-algorithm/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/cardinality-estimation-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HyperLogLog</title>
+      <link>http://hanchau.github.io/tags/hyperloglog/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/hyperloglog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LogLog</title>
+      <link>http://hanchau.github.io/tags/loglog/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/loglog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Brewer&#39;s Theorem</title>
+      <link>http://hanchau.github.io/tags/brewers-theorem/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/brewers-theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CAP Theorem</title>
+      <link>http://hanchau.github.io/tags/cap-theorem/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/cap-theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Systems</title>
+      <link>http://hanchau.github.io/tags/distributed-systems/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gearman</title>
+      <link>http://hanchau.github.io/tags/gearman/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/gearman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gearman Job Server</title>
+      <link>http://hanchau.github.io/tags/gearman-job-server/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/gearman-job-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parallel Processing</title>
+      <link>http://hanchau.github.io/tags/parallel-processing/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/parallel-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parallel Systems</title>
+      <link>http://hanchau.github.io/tags/parallel-systems/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/parallel-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://hanchau.github.io/tags/python/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

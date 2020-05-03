@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts on Glogger</title>
+    <link>http://hanchau.github.io/categories/concepts/</link>
+    <description>Recent content in Concepts on Glogger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://hanchau.github.io/categories/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HyperLogLog!</title>
+      <link>http://hanchau.github.io/posts/understanding_hyperloglog/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_hyperloglog/</guid>
+      <description>Cardinality Quoting wikipedia, the Cardinality is nothing but &amp;ldquo;the number of elements in a given set&amp;rdquo;.
+Cardinality Estimation Algorithm In the last post we discussed CAP theorem and saw why it becomes hard to make systems Available and Consistent when there are potential partitions in the systems. I was thinking about my next post back then and finalized Consistent Hashing, But then I came across an idea to first write about HyperLogLog because of its Elegance and Power.</description>
+    </item>
+    
+    <item>
+      <title>CAP theorem!</title>
+      <link>http://hanchau.github.io/posts/understanding_cap_theorem/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_cap_theorem/</guid>
+      <description>Introduction In the last post I discussed why we need distributed systems and how to setup gearman on a cluster. In this post I&amp;rsquo;ll try to convince you that CAP theorem is indeed a &amp;ldquo;theorem&amp;rdquo;. Anyways, We like distributed systems!! (because they provide us the features that we really want) but&amp;hellip;, Are they trivial to implement?.
+Words of Wisdom!! My colleague once said
+More code =&amp;gt; More Complexity =&amp;gt; More Monster Bugs =&amp;gt; More Pain  Fundamental Operations Let&amp;rsquo;s start with that, Initially we used to have a beautiful piece of machine having 8 cores, 16 gigs of memory, few hundread gigs of storage.</description>
+    </item>
+    
+    <item>
+      <title>Distributed systems!</title>
+      <link>http://hanchau.github.io/posts/understanding_distributed_systems/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_distributed_systems/</guid>
+      <description>What are Distributed Systems? In the last post I gave a brief about the concept of parallel processing through some examples. Now we know how to make our systems more parallel in nature, I think it&amp;rsquo;s time learn the concept of distributed processing, how it&amp;rsquo;s different from parallel processing and how to integrate it in our existing projects. There are lots of definitions of Distributed System but I&amp;rsquo;ll give you the one I like the most which is obviously mine (HAHA).</description>
+    </item>
+    
+    <item>
+      <title>Parallel processing!</title>
+      <link>http://hanchau.github.io/posts/understanding_parallel_processing/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/understanding_parallel_processing/</guid>
+      <description>Why Parallel Processing?. Gearman Job Server is the first parallel/distributed processing framework that I&amp;rsquo;ve learned/worked on which is indeed a very old framework out there. One of the things I like about Gearman is that it&amp;rsquo;s very generic and you can play around a lot. In the last post I wrote how to setup the gearman job server and in this post I&amp;rsquo;m going to brief you why we need parallel processing with some examples:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Why do we need distributed systems?">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Distributed systems!" />
+<meta property="og:description" content="Why do we need distributed systems?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://hanchau.github.io/posts/understanding_distributed_systems/" />
+<meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-15T00:00:00+00:00" />
+<title>Distributed systems! | Glogger</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.93dc32deb84f0b0aefedf43fe29ef9e6688c71e5c040bc6f946669e0767fcd2f.js" integrity="sha256-k9wy3rhPCwrv7fQ/4p755miMceXAQLxvlGZp4HZ/zS8="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/b.png" alt="Logo" /><span>Glogger</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li>
+<p><a href="/posts/"><strong>Blog</strong></a></p>
+</li>
+<li>
+<p><a href="/cheetsheet/"><strong>Cheet Sheet</strong></a></p>
+</li>
+<li>
+<p><strong>Connect</strong></p>
+</li>
+<li>
+<p><a href="/contact/"><strong>Contact</strong></a></p>
+</li>
+<li>
+<p><a href="/about/"><strong>About</strong></a></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Distributed systems!</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-are-distributed-systems">What are Distributed Systems?</a>
+          <ul>
+            <li><a href="#examples-of-distributed-systems">Examples of Distributed Systems</a></li>
+            <li><a href="#primitive-features">Primitive Features</a></li>
+            <li><a href="#high-level-features">High Level Features</a></li>
+            <li><a href="#single-point-of-failure">Single Point of Failure.</a></li>
+            <li><a href="#high-scalability">High Scalability</a></li>
+          </ul>
+        </li>
+        <li><a href="#cool-videos-to-watch">Cool videos to watch</a>
+          <ul>
+            <li><a href="#brief-about-the-downsides-of-distributed-systems">Brief about the downsides of distributed systems.</a></li>
+            <li><a href="#a-more-detailed-version">A more detailed version.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/understanding_distributed_systems/">Distributed systems!</a>
+  </h1>
+  
+  <h5>March 15, 2020</h5>
+
+
+
+  
+  <div>
+    
+      <a href="/categories/concepts/">Concepts</a>
+  </div>
+  
+
+  
+  <div>
+    
+      <a href="/tags/distributed-systems/">Distributed Systems</a>, 
+      <a href="/tags/gearman/">Gearman</a>, 
+      <a href="/tags/gearman-job-server/">Gearman Job Server</a>
+  </div>
+  
+
+
+  <p><h2 id="what-are-distributed-systems">What are Distributed Systems?</h2>
+<p>In the last post I gave a brief about the concept of parallel processing through some examples. Now we know how to make our systems more parallel in nature, I think it&rsquo;s time learn the concept of distributed processing, how it&rsquo;s different from parallel processing and how to integrate it in our existing projects. There are lots of definitions of Distributed System but I&rsquo;ll give you the one I like the most which is obviously mine (HAHA).</p>
+<blockquote class="book-hint info">
+  A system having a set of computer systems located at different geographical locations appears as a single unit to the end user.
+</blockquote>
+
+<h3 id="examples-of-distributed-systems">Examples of Distributed Systems</h3>
+<p>Some examples of distributed systems are:</p>
+<ol>
+<li><a href="https://arsalankhan.com/2015/07/02/is-internet-a-distributed-system/">The Internet</a></li>
+<li><a href="http://highscalability.com/google-architecture">Google</a></li>
+<li><a href="https://prezi.com/phbdww0euz94/facebook-as-a-distributed-system/">Facebook</a></li>
+</ol>
+<h3 id="primitive-features">Primitive Features</h3>
+<p>There are some useful primitive features to exploit out from a distributed system:</p>
+<pre><code>Distributed Storage.
+Distributed Computing.
+Distributed Memory.
+</code></pre><h3 id="high-level-features">High Level Features</h3>
+<p>Now from these primitive features we can construct many high level features having varied quantities of primitives features.</p>
+<ol>
+<li>No Single point of Failure.</li>
+<li>High Scalability.</li>
+<li>Low Latency.</li>
+<li>Reliability.</li>
+</ol>
+<h3 id="single-point-of-failure">Single Point of Failure.</h3>
+<p>Now we know how to process parallelly, let&rsquo;s say you wrote an application which uses all these cool parallel processing features and deployed it on the server. Days passes and one day a thunderstorm comes and electricity system of the city goes down. Nobody can use ur application. So&hellip; what to do?</p>
+<p>I think you got the point, there should not be a single thing in our system on which the whole system depends i.e. if that thing goes down system goes down.</p>
+<p>One solution is, why don&rsquo;t we replicate our system in another server who has a different electricity supplier. Well it is possible.</p>
+<p>We can go with this solution and to achieve no single point of failure with gearman we just have to create a new replica of the original server.</p>
+<p>The Gearman solution:</p>
+<pre><code>Given initial server A.
+Get an new server B in a seperate geographical location.
+Clone your application.
+Start a new gearman job server.
+  $ gearman -d &lt;port&gt;
+Add all your workers/clients to both the gearman job servers A and B.
+Daemonize your workers on B.
+</code></pre><p>Now, if any one of them goes down there will be another one to process the tasks.
+Hurray!! Now we&rsquo;re safe from any kind of electricity isssue.</p>
+<blockquote class="book-hint danger">
+  NOTE: By getting servers of different electricity supplier we&rsquo;re just trying to minimize the probability of getting a downtime, because as we keep on increasing the number of backup servers from different electricity suppliers the probability of having an electricity shutdown for all the supplier at the same time would be very less.
+</blockquote>
+
+<h3 id="high-scalability">High Scalability</h3>
+<p>I think of scaling as an increase in the number of tasks to perform by the system. These tasks can be CPU Intensive, I/O Intensive or can have both CPU and IO bursts. So, let&rsquo;s say you have a live video streaming application which was initially doing 10^1 taks/min with a machine limit of 10^2 tasks/min, but due to sudden increase in the user base because a live stream suddenly got viral, your system now receives 10^3 tasks/min. So&hellip; What will you do? Well you might say that this is not practical, but trust me if it happens, given you just started up as a live video streaming site.</p>
+<p>The Gearman solution:</p>
+<pre><code>Given initial server A.
+Get an extra server B.
+Clone your application.
+Start a new gearman job server.
+  $ gearman -d &lt;port&gt;
+Add all your workers/clients to both the gearman job servers A and B.
+Daemonize your workers on B.
+Repeat this for 8 new machines.
+</code></pre><p>Maximum system limit becomes <strong>10 * 10^2 = 10^3</strong> tasks/min.</p>
+<p>Hurray!!, Now we can sleep like a baby. Both of the other features are similar but with their own little flavor like, if you want your application response to be geography agnostic i.e. A person in India gets response in 100 ms and A person in US also gets response in the same time, Then you have to deploy it on multiple continents with all of its dependencies like DBs, Metadatas and Caches.</p>
+<p>Thanks, Cheers &amp; Happy Glogging.</p>
+<blockquote class="book-hint warning">
+  A Note on COVID-19 pandemic: Keep Calm, Eat Well &amp; Stay @ Home.
+</blockquote>
+
+<h2 id="cool-videos-to-watch">Cool videos to watch</h2>
+<h3 id="brief-about-the-downsides-of-distributed-systems">Brief about the downsides of distributed systems.</h3>
+<hr>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Y6Ev8GIlbxc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<br>
+<hr>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/tpspO9K28PM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<br>
+<h3 id="a-more-detailed-version">A more detailed version.</h3>
+<hr>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/eSaFVX4izsQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<br>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-are-distributed-systems">What are Distributed Systems?</a>
+          <ul>
+            <li><a href="#examples-of-distributed-systems">Examples of Distributed Systems</a></li>
+            <li><a href="#primitive-features">Primitive Features</a></li>
+            <li><a href="#high-level-features">High Level Features</a></li>
+            <li><a href="#single-point-of-failure">Single Point of Failure.</a></li>
+            <li><a href="#high-scalability">High Scalability</a></li>
+          </ul>
+        </li>
+        <li><a href="#cool-videos-to-watch">Cool videos to watch</a>
+          <ul>
+            <li><a href="#brief-about-the-downsides-of-distributed-systems">Brief about the downsides of distributed systems.</a></li>
+            <li><a href="#a-more-detailed-version">A more detailed version.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
