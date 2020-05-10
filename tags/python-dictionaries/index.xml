@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python Dictionaries on Glogger</title>
+    <link>http://hanchau.github.io/tags/python-dictionaries/</link>
+    <description>Recent content in Python Dictionaries on Glogger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://hanchau.github.io/tags/python-dictionaries/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hashing</title>
+      <link>http://hanchau.github.io/posts/hashing/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/posts/hashing/</guid>
+      <description>A Brief History. Arosal of an idea parallely at multiple places is indicative of its need in the ecosystem. Like many ideas in Computer Science, Hashing was also introduced independently by different Scientists. According to Wikipedia, In 1953, At IBM, one computer scientist named Hans Pete Luhn wrote an internal memorandum that used Hashing (with Chaining), and about the same time a group of scientists Gene Amdahl, Elaine M. McGraw, Nathaniel Rochester, and Arthur Samuel wrote a program using hashing.</description>
+    </item>
+    
+  </channel>
+</rss>

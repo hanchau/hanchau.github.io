@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Glogger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://hanchau.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cryptography</title>
+      <link>http://hanchau.github.io/tags/cryptography/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hash Functions</title>
+      <link>http://hanchau.github.io/tags/hash-functions/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/hash-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hash Table</title>
+      <link>http://hanchau.github.io/tags/hash-table/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/hash-table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hashing</title>
+      <link>http://hanchau.github.io/tags/hashing/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/hashing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://hanchau.github.io/tags/python/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python Dictionaries</title>
+      <link>http://hanchau.github.io/tags/python-dictionaries/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://hanchau.github.io/tags/python-dictionaries/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cardinality Estimation Algorithm</title>
@@ -98,15 +152,6 @@
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://hanchau.github.io/tags/parallel-systems/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>http://hanchau.github.io/tags/python/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://hanchau.github.io/tags/python/</guid>
       <description></description>
     </item>
     
