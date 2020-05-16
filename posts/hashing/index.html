@@ -15,7 +15,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.098ac3557c34106bd3e479586696680ec768c56d9f80e8e8f3290c1e07033725.js" integrity="sha256-CYrDVXw0EGvT5HlYZpZoDsdoxW2fgOjo8ykMHgcDNyU="></script>
+<script defer src="/en.search.min.fc0c0cb83b7226eb052501f654115f9c896ff5448855dfc2bbcef14816a44d13.js" integrity="sha256-/AwMuDtyJusFJQH2VBFfnIlv9USIVd/Cu87xSBakTRM="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -122,21 +122,22 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#hash-table-hash-map">Hash Table/ Hash Map</a></li>
           </ul>
         </li>
-        <li><a href="#test-of-a-good-hash-function">Test of a good Hash Function.</a>
+        <li><a href="#desired-properties-of-hash-functions">Desired properties of Hash Functions.</a>
           <ul>
-            <li><a href="#chi-squared-test-hahahugoshortcode-s6-hbhb">Chi-Squared Test: HAHAHUGOSHORTCODE-s6-HBHB</a></li>
-            <li><a href="#an-example">An Example</a></li>
+            <li><a href="#uniformity">Uniformity</a></li>
+            <li><a href="#efficiency">Efficiency</a></li>
+            <li><a href="#applicability">Applicability</a></li>
+            <li><a href="#determinism">Determinism</a></li>
           </ul>
         </li>
-        <li><a href="#expectation-vs-reality-of-hash-functions-properties">Expectation vs Reality of Hash Function&rsquo;s Properties.</a>
+        <li><a href="#test-of-a-good-hash-function">Test of a good Hash Function.</a>
           <ul>
+            <li><a href="#chi-squared-test-hahahugoshortcode-s11-hbhb">Chi-Squared Test: HAHAHUGOSHORTCODE-s11-HBHB</a></li>
+            <li><a href="#case-study">Case Study</a></li>
             <li><a href="#handling-collisions">Handling Collisions.</a></li>
           </ul>
         </li>
-        <li><a href="#popular-hash-functions">Popular Hash Functions.</a></li>
-        <li><a href="#hash-map-in-python-dictionaries">Hash Map in Python Dictionaries.</a></li>
-        <li><a href="#use-cases">Use Cases.</a></li>
-        <li><a href="#cryptographic-hash-functions">Cryptographic Hash Functions.</a></li>
+        <li><a href="#hash-map-in-python-or-python-dictionaries">Hash Map in Python or Python Dictionaries.</a></li>
         <li><a href="#references">References</a></li>
         <li><a href="#cool-videos-to-watch">Cool Videos to watch.</a></li>
       </ul>
@@ -171,7 +172,6 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-      <a href="/tags/cryptography/">Cryptography</a>, 
       <a href="/tags/hash-functions/">Hash Functions</a>, 
       <a href="/tags/hash-table/">Hash Table</a>, 
       <a href="/tags/hashing/">Hashing</a>, 
@@ -298,8 +298,48 @@ graph TB
 
 </p>
 
+<h2 id="desired-properties-of-hash-functions">Desired properties of Hash Functions.</h2>
+<p>Few properties which I think are very crucial for Hash Functions to have are as follows-</p>
+<ol>
+<li>Uniformity</li>
+<li>Efficiency</li>
+<li>Applicability</li>
+<li>Determinism</li>
+</ol>
+<p>Some properties like the range of a Hash Function depends on its application. So, a Hash Function can have a well-defined range or a variable range. An example would be if we want our hash function to be used for some sort of indexing for a hash table then having a well-defined range is necessary because of the system constraints.</p>
+<h3 id="uniformity">Uniformity</h3>
+<p>Uniformity simply means that a Hash Function should have a uniform distribution over its range because if it doesn&rsquo;t have, then the chances of collision would go up and it will lead to collisions. If a Hash Function is not designed to achieve uniformity then it may be the case that
+<span>
+  \(\forall x_i \in \xi, \hat h (x_i) = C\)
+</span>
+ viz, all the keys get mapped to the same bucket
+which we strictly don&rsquo;t want as it negates the purpose of having a Hash Function.</p>
+<h3 id="efficiency">Efficiency</h3>
+<p>As the name suggests the Hash Function should be efficient in terms of cost of calculation. An example is let&rsquo;s say we are using a custom hash map in C++, we wrote our hash function which takes 1 sec to calculate the hash value, Now, every insertion in the data structure will take 1 second which is pretty bad. The crux is
+<blockquote class="book-hint warning">
+  It should not be the case where Linear Search becomes faster (inclusive insertion/deletions/updates) than the Hash Map because of the overhead introduced by the Hash Function.
+</blockquote>
+</p>
+<h3 id="applicability">Applicability</h3>
+<p>Applicability means that our Hash Function should be capable enough to hash different types and different sizes of input. It should have a parameter for seed. This Hash Function would be more applicable than the one which doesn&rsquo;t have these features.</p>
+<h3 id="determinism">Determinism</h3>
+<p>This simply means that it should be deterministic i.e.
+For a given hash function
+<span>
+  \(\hat \sigma(\xi), \xi \in \{x_0,..,x_N\},\)
+</span>
+
+If we iterate through the set <span>
+  \( \xi \)
+</span>
+ and calculate the hash for all the keys then,
+<span>
+  \[\forall x_i, x_j \in \xi, x_i = x_j \implies \hat \sigma (x_i) = \hat \sigma (x_j)\]
+</span>
+
+viz, The same input should result in the same hash output agnostic of any iteration or condition.</p>
 <h2 id="test-of-a-good-hash-function">Test of a good Hash Function.</h2>
-<h3 id="chi-squared-test-hahahugoshortcode-s6-hbhb">Chi-Squared Test: <span>
+<h3 id="chi-squared-test-hahahugoshortcode-s11-hbhb">Chi-Squared Test: <span>
   \( \mu(\hat h) \)
 </span>
 </h3>
@@ -315,43 +355,197 @@ Assuming we have</p>
 </span>
 </blockquote>
 </p>
-<h3 id="an-example">An Example</h3>
-<p>Let&rsquo;s say we have a hash function</p>
-<p><span>
+<h3 id="case-study">Case Study</h3>
+<p>Let&rsquo;s say we have a hash function
+<span>
   \( \hat \sigma(x)  \)
 </span>
  such that
 <span>
-  \( \nexists x_1, x_2 \in \xi\)
+  \[ \mu(\hat \sigma) := \frac{\sum_{j=0}^{m-1} b_j(b_j&#43;1)/2}{\frac{n}{2m}(n&#43;2m-1)}  \]
 </span>
- for which
+
+Now to simplify thing here, let&rsquo;s say
 <span>
-  \( \hat \sigma(x_1) = \hat \sigma(x_2) \)
+  \(  n = k.m \)
+</span>
+ i.e. total number keys is a multiple of total number of buckets.
+<span>
+  \[ \mu(\hat \sigma) := \frac{\sum_{j=0}^{m-1} b_j(b_j&#43;1)/2}{\frac{k.m}{2m}(k.m&#43;2m-1)}  \]
 </span>
 
 <span>
-  \( \implies  \forall j , b_j = 1  \)
+  \[ \mu(\hat \sigma) := \frac{2.\sum_{j=0}^{m-1} b_j(b_j&#43;1)/2}{k.m(k&#43;2-1/m)}  \]
 </span>
- therefore
+
 <span>
-  \[ \mu(\hat \sigma) := \frac{m}{\frac{n}{2m}(n&#43;2m-1)}\]
+  \[ \mu(\hat \sigma) := \frac{\sum_{j=0}^{m-1} b_j(b_j&#43;1)}{k.m(k&#43;2-1/m)}  \]
 </span>
- Now if m &raquo; n
+ Assuming m to be large we can ignore the 1/m term. The equation becomes -
 <span>
-  \[ \mu(\hat \sigma) := \frac{m}{\frac{n}{2m}(n&#43;2m-1)}\]
+  \[ \mu(\hat \sigma) := \frac{\sum_{j=0}^{m-1} b_j(b_j&#43;1)}{m.k(k&#43;2)}  \]
 </span>
+
+Now we can see how the Mu changes as a function of distribution and the keys to bucket ratio of the Hash Function.
+<blockquote class="book-hint info">
+  Note: The distribution signifies how the Hash Function distributes the set of keys to a set of buckets. The keys to bucket ratio indicates how the performance of a Hash Map changes as the number of keys/buckets changes.
+</blockquote>
 </p>
-<h2 id="expectation-vs-reality-of-hash-functions-properties">Expectation vs Reality of Hash Function&rsquo;s Properties.</h2>
+<table>
+<thead>
+<tr>
+<th>Eg No.</th>
+<th><span>
+  \( k \)
+</span>
+</th>
+<th><span>
+  \( \{b_0, b_1, ..., b_{m-1} \} \)
+</span>
+</th>
+<th><span>
+  \( \mu(\hat \sigma) := \frac{\sum_{j=0}^{m-1} b_j(b_j&#43;1)}{m.k(k&#43;2)} \)
+</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.01</td>
+<td>1% of <span>
+  \( b_j \)
+</span>
+ are 1</td>
+<td><span>
+  \[ = \frac{2m/100}{m0.01(0.01&#43;2)} = 0.995 \]
+</span>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.01</td>
+<td>0.1% of <span>
+  \( b_j \)
+</span>
+ are 10</td>
+<td><span>
+  \[ = \frac{110m/1000}{m0.01(0.01&#43;2)} = 5.472 \]
+</span>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.1</td>
+<td>10% of <span>
+  \( b_j \)
+</span>
+ are 1</td>
+<td><span>
+  \[ = \frac{2m/10}{m0.1(0.1&#43;2)} = 0.952 \]
+</span>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.1</td>
+<td>1% of <span>
+  \( b_j \)
+</span>
+ are 10</td>
+<td><span>
+  \[ = \frac{110m/100}{m0.1(0.1&#43;2)} = 5.238 \]
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The value of Mu/chi-squared test is said to be in range (0.95 - 1.05) if a Hash Function has a uniform distribution. From above example number 1 and 3 we can see that if few % buckets has only one key in them, then the Mu has a value between the former range. And in other examples, few % buckets has 10 (more than 1) keys in them which caused Mu to be very high. It signifies that the distribution is not so good in those cases.</p>
 <h3 id="handling-collisions">Handling Collisions.</h3>
-<h2 id="popular-hash-functions">Popular Hash Functions.</h2>
-<h2 id="hash-map-in-python-dictionaries">Hash Map in Python Dictionaries.</h2>
-<h2 id="use-cases">Use Cases.</h2>
-<h2 id="cryptographic-hash-functions">Cryptographic Hash Functions.</h2>
+<p>There are multiple approaches to handle collisions.</p>
+<ol>
+<li>Chaining</li>
+<li>Linear probing</li>
+<li>k-level hashing</li>
+<li>Tree chaining</li>
+</ol>
+<p>The abstract idea is to store the two keys which has the same hash value. Either we can create a linked list for every bucket, either we can put the collision key into the next bucket in the hashmap as we do in linear probing, either we can maintain another level of hash map (with a different hash function) at every bucket in the main hash map or we can maintain a BST for every bucket.</p>
+<h2 id="hash-map-in-python-or-python-dictionaries">Hash Map in Python or Python Dictionaries.</h2>
+<p>This idea of Hash Map is now known as Python Dictionaries provided as an abstraction in python. As per my research, I found that the python dictionaries use inbuilt hash function named <em>hash(x)</em>. Th <em>hash</em> internally uses <a href="https://github.com/python/cpython/blob/master/Python/pyhash.c"><strong>ScipHash</strong></a>. As per wikipedia <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">ScipHash</a> is used in Hash Maps of many languages like Perl 5, Python (starting in version 3.4), Raku, Ruby,  Rust, systemd, OpenDNS, Haskell, OpenBSD, Swift, Bitcoin (for short transaction IDs), Bloomberg BDE as a C++ object hasher. The Pyhton <em>hash</em> supports all the <strong>immutable objects</strong> as its input. Few examples of <em>hash</em> are -
+<blockquote class="book-hint danger">
+  All the mutable objects like Lists, Dictionaries cannot be hashed. One way to hash a list is to cast it to a tuple.
+</blockquote>
+</p>
+<pre><code>$ python
+Python 3.7.6 (default, Dec 30 2019, 19:38:26)
+[Clang 11.0.0 (clang-1100.0.33.16)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+
+&gt;&gt;&gt; hash(1)
+1
+
+&gt;&gt;&gt; hash(2)
+2
+
+&gt;&gt;&gt; hash(-1)
+-2
+
+&gt;&gt;&gt; hash(20)
+20
+
+&gt;&gt;&gt; hash(999999999999999999)
+999999999999999999
+
+&gt;&gt;&gt; hash(9999999999999999999)
+776627963145224195
+
+&gt;&gt;&gt; hash(0.1)
+230584300921369408
+
+&gt;&gt;&gt; hash(0.3)
+691752902764108160
+
+&gt;&gt;&gt; hash('Hanchau is Awesome!!!')
+8294309964540925058
+
+&gt;&gt;&gt; hash([1,2,3])
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: unhashable type: 'list'
+
+&gt;&gt;&gt; hash(tuple([1,2,3]))
+2528502973977326415
+
+&gt;&gt;&gt; #AN EXAMPLE OF COLLISION
+&gt;&gt;&gt; hash(-1)
+-2
+&gt;&gt;&gt; hash(-2)
+-2
+&gt;&gt;&gt; hash(-1) is hash(-2)
+True
+
+&gt;&gt;&gt; hash(100) is -1 * hash(-100)
+True
+
+&gt;&gt;&gt; hash({1,2,3})
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: unhashable type: 'set'
+
+&gt;&gt;&gt; # FROZEN SETS ARE IMMUTABLE HENCE HASHABLE
+&gt;&gt;&gt; hash(frozenset({1,2,3}))
+-272375401224217160
+</code></pre><p>Well at first I thought to cover Cryptographic Hash Functions in the same post but let&rsquo;s save it for another day.</p>
+<p>Thanks &amp; Cheers!!</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Hash_function">Hash Function</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Hash_table">Hash Tables</a></li>
 <li><a href="https://medium.com/tech-tales/what-is-hashing-6edba0ebfa67">Hashing</a></li>
+<li><a href="http://www.azillionmonkeys.com/qed/hash.html">Snippet of a Hash Function</a></li>
+<li><a href="https://www.includehelp.com/data-structure-tutorial/hashing.aspx">Make your own Hash Function</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SipHash">SipHash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">Cryptographic Hash Functions</a></li>
 </ul>
 <h2 id="cool-videos-to-watch">Cool Videos to watch.</h2>
 <hr>
@@ -413,21 +607,22 @@ Assuming we have</p>
             <li><a href="#hash-table-hash-map">Hash Table/ Hash Map</a></li>
           </ul>
         </li>
-        <li><a href="#test-of-a-good-hash-function">Test of a good Hash Function.</a>
+        <li><a href="#desired-properties-of-hash-functions">Desired properties of Hash Functions.</a>
           <ul>
-            <li><a href="#chi-squared-test-hahahugoshortcode-s6-hbhb">Chi-Squared Test: HAHAHUGOSHORTCODE-s6-HBHB</a></li>
-            <li><a href="#an-example">An Example</a></li>
+            <li><a href="#uniformity">Uniformity</a></li>
+            <li><a href="#efficiency">Efficiency</a></li>
+            <li><a href="#applicability">Applicability</a></li>
+            <li><a href="#determinism">Determinism</a></li>
           </ul>
         </li>
-        <li><a href="#expectation-vs-reality-of-hash-functions-properties">Expectation vs Reality of Hash Function&rsquo;s Properties.</a>
+        <li><a href="#test-of-a-good-hash-function">Test of a good Hash Function.</a>
           <ul>
+            <li><a href="#chi-squared-test-hahahugoshortcode-s11-hbhb">Chi-Squared Test: HAHAHUGOSHORTCODE-s11-HBHB</a></li>
+            <li><a href="#case-study">Case Study</a></li>
             <li><a href="#handling-collisions">Handling Collisions.</a></li>
           </ul>
         </li>
-        <li><a href="#popular-hash-functions">Popular Hash Functions.</a></li>
-        <li><a href="#hash-map-in-python-dictionaries">Hash Map in Python Dictionaries.</a></li>
-        <li><a href="#use-cases">Use Cases.</a></li>
-        <li><a href="#cryptographic-hash-functions">Cryptographic Hash Functions.</a></li>
+        <li><a href="#hash-map-in-python-or-python-dictionaries">Hash Map in Python or Python Dictionaries.</a></li>
         <li><a href="#references">References</a></li>
         <li><a href="#cool-videos-to-watch">Cool Videos to watch.</a></li>
       </ul>
