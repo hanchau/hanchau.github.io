@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://hanchau.github.io/gems/articles/</guid>
-      <description></description>
+      <description>Schema Evolution | Martin Kleppmann  DLL and SOs with Go  Ten useful techniques in Go  Intro to SOA and Microservices  Context Managers(python)  Celery Pools  Nameko (interesting way to build microservices in python)  Go-Kit  Micro (Go microservices ecosystem)  S3 and Athena  Django, Websockets, and Channels  Wish I knew before building that app  Chernobyl DevOps (Has a very deep insight on Chernobyl Disaster)  Hydra (A JS microservices framework on top of Redis)  A silent meeting is worth a thousand words  Majestic Monolith  AsyncIO vs green threads  FastAPI  Art of destroying software  Your server as a function  Big ball of mud</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://hanchau.github.io/gems/videos/</guid>
-      <description>                                                                                                      </description>
+      <description>                                                                                                   </description>
     </item>
     
   </channel>
